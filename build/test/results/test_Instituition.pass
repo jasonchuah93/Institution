@@ -1,0 +1,19 @@
+---
+:source:
+  :path: test
+  :file: test_Instituition.c
+:successes:
+- :test: test_LinkedList_will_reverse_2_different_Instituition
+  :line: 11
+  :message: ''
+- :test: test_LinkedList_will_reverse_3_different_Instituition
+  :line: 41
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 2
+  :passed: 2
+  :failed: 0
+  :ignored: 0
+:stdout: []
