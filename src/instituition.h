@@ -10,6 +10,8 @@ extern Stack stack;
 
 typedef enum{Unknown, University, UniversityCollege, College}InstitutionType;
 
+typedef enum {Error_year_established}ExceptionError;
+
 typedef struct Instituton_t{
 	char *name;
 	char *address;
@@ -19,11 +21,11 @@ typedef struct Instituton_t{
 	int yearEstablished;
 	}Institution;
 
- 
+
 int Institution_reverse(LinkedList *inputList, LinkedList *outputList);
 int Institution_reverse1(LinkedList *inputList, LinkedList *outputList);
 int Institution_reverse2(LinkedList *inputList, LinkedList *outputList);
-
 int isUniversityCollege (void *elem1 , void *type);
+int wasEstablishedBefore(void *elem1, void *year);
 
 #endif //__INSTITUITION_H__

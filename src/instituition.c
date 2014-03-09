@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "instituition.h"
+#include "CException.h"
 
 
 Stack stack;
@@ -139,6 +140,7 @@ int Institution_select(LinkedList *inputList, LinkedList *outputList, void *crit
 	List_addTail(outputList,tempInstitution);
 	tempInstitution=Stack_pop(&stack);
 	List_addTail(outputList,tempInstitution);
+	return 1;
 	
 }
 
@@ -155,4 +157,24 @@ int isUniversityCollege (void *elem1 , void *type){
 		return 0;
 	}
 }	
+
+/** 
+	Question 3
+**/
+int wasEstablishedBefore(void *elem1, void *year){
+	Institution *tempInstitution = (Institution*)elem1;
+	int *specificYear = (int*)year;
+
+	if(tempInstitution->yearEstablished < *specificYear){
+		return 1;
+	}
+
+
+	if(tempInstitution->yearEstablished >2014){
+		
+		Throw(Error_year_established);
+	}
+	return 0;
+}
+
 

@@ -2,6 +2,7 @@
 #include "mock_Stack.h"
 #include "mock_LinkedList.h"
 #include "instituition.h"
+#include "CException.h"
 
 
 
@@ -246,7 +247,7 @@ void test_LinkedList_will_reverse_4_different_Institution(){
 
 
 
-void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
+void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_return_0_if_type_is_not_UniversityCollege(){
 
  int check;
 
@@ -310,7 +311,7 @@ void test_select_only_institution_of_particular_type(){
 
  LinkedList InstitutionList;
 
- LinkedList SelectedInstitutionList;
+ LinkedList SelectedInstitution;
 
 
 
@@ -332,11 +333,11 @@ void test_select_only_institution_of_particular_type(){
 
 
 
- List_addTail_CMockExpect(170, &SelectedInstitutionList, &institution4);
+ List_addTail_CMockExpect(170, &SelectedInstitution, &institution4);
 
  Stack_pop_CMockExpectAndReturn(171, &stack, &institution3);
 
- List_addTail_CMockExpect(172, &SelectedInstitutionList, &institution3);
+ List_addTail_CMockExpect(172, &SelectedInstitution, &institution3);
 
 
 
@@ -344,7 +345,181 @@ void test_select_only_institution_of_particular_type(){
 
 
 
- check = Institution_select(&InstitutionList,&SelectedInstitutionList,&Institutions,isUniversityCollege);
+ check = Institution_select(&InstitutionList,&SelectedInstitution,&Institutions,isUniversityCollege);
+
+
+
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)178, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_wasEstablishedBefore_should_return_0_if_institution_establish_after_particular_year_but_before_2014(){
+
+ int check;
+
+ int year = 1980;
+
+
+
+ Institution institution1 = {.yearEstablished = 1990 };
+
+ Institution institution2 = {.yearEstablished = 2000 };
+
+ Institution institution3 = {.yearEstablished = 2010 };
+
+ Institution institution4 = {.yearEstablished = 2013 };
+
+
+
+ check = wasEstablishedBefore(&institution1,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)191, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution2,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)194, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution3,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)197, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution4,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)200, UNITY_DISPLAY_STYLE_INT);
+
+
+
+
+
+}
+
+
+
+void test_wasEstablishedBefore_should_return_1_if_institution_establish_before_particular_year(){
+
+ int check;
+
+ int year = 1980;
+
+
+
+ Institution institution1 = {.yearEstablished = 1970 };
+
+ Institution institution2 = {.yearEstablished = 1960 };
+
+ Institution institution3 = {.yearEstablished = 1950 };
+
+ Institution institution4 = {.yearEstablished = 1930};
+
+
+
+
+
+ check = wasEstablishedBefore(&institution1,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)216, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution2,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)219, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution3,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)222, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution4,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)225, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_wasEstablishedBefore_should_return_0_if_institution_establish_on_particular_year(){
+
+ int check;
+
+ int year = 1980;
+
+
+
+ Institution institution1 = {.yearEstablished = 1980 };
+
+ Institution institution2 = {.yearEstablished = 1980 };
+
+ Institution institution3 = {.yearEstablished = 1980 };
+
+ Institution institution4 = {.yearEstablished = 1980 };
+
+
+
+ check = wasEstablishedBefore(&institution1,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)238, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution2,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)241, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution3,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)244, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ check = wasEstablishedBefore(&institution4,&year);
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)247, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_wasEstablisedBefore_should_throw_exception_if_institution_established_after_2014(){
+
+ ExceptionError exception;
+
+ Institution institution1={.yearEstablished = 2020};
+
+ int year = 1980;
+
+ int check;
+
+
+
+ { jmp_buf *PrevFrame, NewFrame; unsigned int MY_ID = (0); PrevFrame = CExceptionFrames[(0)].pFrame; CExceptionFrames[MY_ID].pFrame = (jmp_buf*)(&NewFrame); CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); if (_setjmp(NewFrame) == 0) { if (&PrevFrame){
+
+  check = wasEstablishedBefore(&institution1,&year);
+
+ }
+
+ else { } CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); } else { exception = CExceptionFrames[MY_ID].Exception; exception=exception; } CExceptionFrames[MY_ID].pFrame = PrevFrame; } if (CExceptionFrames[(0)].Exception != (0x5A5A5A5A)){
+
+
+
+  UnityAssertEqualNumber((_U_SINT)((Error_year_established)), (_U_SINT)((exception)), (((void *)0)), (_U_UINT)261, UNITY_DISPLAY_STYLE_INT);
+
+  printf("Invalid year establish");
+
+ }
 
 
 

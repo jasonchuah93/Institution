@@ -8,10 +8,13 @@
   Unity.NumberOfTests++; \
   if (TEST_PROTECT()) \
   { \
+    CEXCEPTION_T e; \
+    Try { \
       CMock_Init(); \
       setUp(); \
       TestFunc(); \
       CMock_Verify(); \
+    } Catch(e) { TEST_ASSERT_EQUAL_HEX32_MESSAGE(CEXCEPTION_NONE, e, "Unhandled Exception!"); } \
   } \
   CMock_Destroy(); \
   if (TEST_PROTECT() && !TEST_IS_IGNORED) \
@@ -26,6 +29,7 @@
 #include "cmock.h"
 #include <setjmp.h>
 #include <stdio.h>
+#include "CException.h"
 #include "mock_LinkedList.h"
 #include "mock_Stack.h"
 
@@ -39,8 +43,12 @@ extern void tearDown(void);
 extern void test_LinkedList_will_reverse_2_different_Institution(void);
 extern void test_LinkedList_will_reverse_3_different_Institution(void);
 extern void test_LinkedList_will_reverse_4_different_Institution(void);
-extern void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(void);
+extern void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_return_0_if_type_is_not_UniversityCollege(void);
 extern void test_select_only_institution_of_particular_type(void);
+extern void test_wasEstablishedBefore_should_return_0_if_institution_establish_after_particular_year_but_before_2014(void);
+extern void test_wasEstablishedBefore_should_return_1_if_institution_establish_before_particular_year(void);
+extern void test_wasEstablishedBefore_should_return_0_if_institution_establish_on_particular_year(void);
+extern void test_wasEstablisedBefore_should_throw_exception_if_institution_established_after_2014(void);
 
 
 //=======Mock Management=====
@@ -82,8 +90,12 @@ int main(void)
   RUN_TEST(test_LinkedList_will_reverse_2_different_Institution, 10);
   RUN_TEST(test_LinkedList_will_reverse_3_different_Institution, 40);
   RUN_TEST(test_LinkedList_will_reverse_4_different_Institution, 80);
-  RUN_TEST(test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege, 127);
+  RUN_TEST(test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_return_0_if_type_is_not_UniversityCollege, 127);
   RUN_TEST(test_select_only_institution_of_particular_type, 150);
+  RUN_TEST(test_wasEstablishedBefore_should_return_0_if_institution_establish_after_particular_year_but_before_2014, 181);
+  RUN_TEST(test_wasEstablishedBefore_should_return_1_if_institution_establish_before_particular_year, 205);
+  RUN_TEST(test_wasEstablishedBefore_should_return_0_if_institution_establish_on_particular_year, 228);
+  RUN_TEST(test_wasEstablisedBefore_should_throw_exception_if_institution_established_after_2014, 250);
 
   return (UnityEnd());
 }
