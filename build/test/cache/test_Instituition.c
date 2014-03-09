@@ -246,40 +246,6 @@ void test_LinkedList_will_reverse_4_different_Institution(){
 
 
 
-void test_select_only_institution_of_particular_type(){
-
-
-
- Institution institution1 = {.type = Unknown };
-
- Institution institution2 = {.type = University };
-
- Institution institution3 = {.type = UniversityCollege };
-
- Institution institution4 = {.type = College };
-
-
-
- LinkedList list;
-
- LinkedList reversedList;
-
-
-
- InstitutionType type = UniversityCollege;
-
-
-
-
-
-
-
-
-
-}
-
-
-
 void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
 
  int check;
@@ -290,7 +256,7 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
 
  check = isUniversityCollege(&institution1,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)149, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)132, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -300,7 +266,7 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
 
  check = isUniversityCollege(&institution2,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)154, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)137, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -310,7 +276,7 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
 
  check = isUniversityCollege(&institution3,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)159, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)142, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -320,6 +286,66 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
 
  check = isUniversityCollege(&institution4,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)164, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)147, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_select_only_institution_of_particular_type(){
+
+ int check;
+
+
+
+ Institution institution1 = {.type = Unknown };
+
+ Institution institution2 = {.type = University };
+
+ Institution institution3 = {.type = UniversityCollege };
+
+ Institution institution4 = {.type = College };
+
+
+
+ LinkedList InstitutionList;
+
+ LinkedList SelectedInstitutionList;
+
+
+
+ InstitutionType Institutions = UniversityCollege;
+
+
+
+
+
+ List_removeHead_CMockExpectAndReturn(164, &InstitutionList, &institution1);
+
+ List_removeHead_CMockExpectAndReturn(165, &InstitutionList, &institution2);
+
+ List_removeHead_CMockExpectAndReturn(166, &InstitutionList, &institution3);
+
+ Stack_push_CMockExpect(167, &stack, &institution3);
+
+ List_removeHead_CMockExpectAndReturn(168, &InstitutionList, &institution4);
+
+
+
+ List_addTail_CMockExpect(170, &SelectedInstitutionList, &institution4);
+
+ Stack_pop_CMockExpectAndReturn(171, &stack, &institution3);
+
+ List_addTail_CMockExpect(172, &SelectedInstitutionList, &institution3);
+
+
+
+
+
+
+
+ check = Institution_select(&InstitutionList,&SelectedInstitutionList,&Institutions,isUniversityCollege);
+
+
 
 }

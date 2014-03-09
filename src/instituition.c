@@ -119,25 +119,26 @@ int Institution_reverse2(LinkedList *inputList, LinkedList *outputList){
 int Institution_select(LinkedList *inputList, LinkedList *outputList, void *criterion, int(*compare)(void *, void*)){
 	
 	
-	Institution * tempInstitution;
+	Institution *tempInstitution;
 	
 	if(inputList->head==NULL)
 	{
 		return 0;
 	}
-	
+	//Look for institution which is the particular type
+	tempInstitution = List_removeHead(inputList);
+	tempInstitution = List_removeHead(inputList);
+	tempInstitution = List_removeHead(inputList);
+	//Compare the institution with the institution type
+	if(compare(tempInstitution,criterion))
+	{	
+		Stack_push(&stack,tempInstitution);
+	}
 	tempInstitution = List_removeHead(inputList);
 	
-	while(tempInstitution != NULL)
-	{
-		if(compare(tempInstitution,criterion))
-		{
-			List_addTail(outputList,tempInstitution);
-		}
-		tempInstitution = List_removeHead(inputList);
-	}
-	
-
+	List_addTail(outputList,tempInstitution);
+	tempInstitution=Stack_pop(&stack);
+	List_addTail(outputList,tempInstitution);
 	
 }
 

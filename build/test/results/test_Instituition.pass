@@ -12,11 +12,11 @@
 - :test: test_LinkedList_will_reverse_4_different_Institution
   :line: 80
   :message: ''
-- :test: test_select_only_institution_of_particular_type
+- :test: test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege
   :line: 127
   :message: ''
-- :test: test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege
-  :line: 144
+- :test: test_select_only_institution_of_particular_type
+  :line: 150
   :message: ''
 :failures: []
 :ignores: []

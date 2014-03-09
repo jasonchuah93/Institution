@@ -11,6 +11,6 @@ typedef struct {
 void List_addTail(LinkedList *list, void *element);
 
 void *List_removeHead(LinkedList *list);
-	
+
 	
 #endif //__LINKED_LIST_H__

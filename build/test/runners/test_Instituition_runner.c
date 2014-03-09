@@ -39,8 +39,8 @@ extern void tearDown(void);
 extern void test_LinkedList_will_reverse_2_different_Institution(void);
 extern void test_LinkedList_will_reverse_3_different_Institution(void);
 extern void test_LinkedList_will_reverse_4_different_Institution(void);
-extern void test_select_only_institution_of_particular_type(void);
 extern void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(void);
+extern void test_select_only_institution_of_particular_type(void);
 
 
 //=======Mock Management=====
@@ -82,8 +82,8 @@ int main(void)
   RUN_TEST(test_LinkedList_will_reverse_2_different_Institution, 10);
   RUN_TEST(test_LinkedList_will_reverse_3_different_Institution, 40);
   RUN_TEST(test_LinkedList_will_reverse_4_different_Institution, 80);
-  RUN_TEST(test_select_only_institution_of_particular_type, 127);
-  RUN_TEST(test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege, 144);
+  RUN_TEST(test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege, 127);
+  RUN_TEST(test_select_only_institution_of_particular_type, 150);
 
   return (UnityEnd());
 }

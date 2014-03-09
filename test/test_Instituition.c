@@ -81,7 +81,7 @@ void test_LinkedList_will_reverse_4_different_Institution(){
 	
 	//To check whether the function will return 1  
 	int check ;
-	//Initialize Instituition and linked list
+	//Initialize Institution and linked list
 	Institution institution1;
 	Institution institution2;
 	Institution institution3;
@@ -124,23 +124,6 @@ void test_LinkedList_will_reverse_4_different_Institution(){
 	
 }
 
-void test_select_only_institution_of_particular_type(){
-	
-	Institution institution1 = {.type = Unknown };
-	Institution institution2 = {.type = University };
-	Institution institution3 = {.type = UniversityCollege };
-	Institution institution4 = {.type = College };
-	
-	LinkedList list;
-	LinkedList reversedList;
-	
-	InstitutionType type = UniversityCollege;
-	
-	//List_removeHead_ExpectAndReturn(&list,&institution1);
-	//Stack_push_Expect(&stack,&institution1);
-	
-}
-
 void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
 	int check;
 	Institution institution1 = {.type = Unknown };
@@ -164,6 +147,37 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
 	TEST_ASSERT_EQUAL(0,check);
 }
 	
+void test_select_only_institution_of_particular_type(){
+	int check;
+	//Initialize institution and LinkedList
+	Institution institution1 = {.type = Unknown };
+	Institution institution2 = {.type = University };
+	Institution institution3 = {.type = UniversityCollege };
+	Institution institution4 = {.type = College };
+	
+	LinkedList InstitutionList;
+	LinkedList SelectedInstitutionList;
+	//To test Institutions is UniversityCollege
+	InstitutionType Institutions = UniversityCollege;
+	//Look for institution that is University College which is institution3
+	//and push to compare
+	List_removeHead_ExpectAndReturn(&InstitutionList,&institution1);
+	List_removeHead_ExpectAndReturn(&InstitutionList,&institution2);
+	List_removeHead_ExpectAndReturn(&InstitutionList,&institution3);
+	Stack_push_Expect(&stack,&institution3);
+	List_removeHead_ExpectAndReturn(&InstitutionList,&institution4);
+	//Add back institution 3 to link list
+	List_addTail_Expect(&SelectedInstitutionList,&institution4);
+	Stack_pop_ExpectAndReturn(&stack,&institution3);
+	List_addTail_Expect(&SelectedInstitutionList,&institution3);
+	
+	
+	//Call function
+	check = Institution_select(&InstitutionList,&SelectedInstitutionList,&Institutions,isUniversityCollege);
+	
+}
+
+
 
 
 
