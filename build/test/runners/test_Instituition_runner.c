@@ -36,8 +36,10 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_LinkedList_will_reverse_2_different_Instituition(void);
-extern void test_LinkedList_will_reverse_3_different_Instituition(void);
+extern void test_LinkedList_will_reverse_2_different_Institution(void);
+extern void test_LinkedList_will_reverse_3_different_Institution(void);
+extern void test_LinkedList_will_reverse_4_different_Institution(void);
+extern void test_select_only_institution_of_particular_type(void);
 
 
 //=======Mock Management=====
@@ -76,8 +78,10 @@ int main(void)
 {
   Unity.TestFile = "test_Instituition.c";
   UnityBegin();
-  RUN_TEST(test_LinkedList_will_reverse_2_different_Instituition, 11);
-  RUN_TEST(test_LinkedList_will_reverse_3_different_Instituition, 41);
+  RUN_TEST(test_LinkedList_will_reverse_2_different_Institution, 11);
+  RUN_TEST(test_LinkedList_will_reverse_3_different_Institution, 42);
+  RUN_TEST(test_LinkedList_will_reverse_4_different_Institution, 82);
+  RUN_TEST(test_select_only_institution_of_particular_type, 129);
 
   return (UnityEnd());
 }

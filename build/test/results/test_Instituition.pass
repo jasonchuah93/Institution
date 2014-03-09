@@ -3,17 +3,23 @@
   :path: test
   :file: test_Instituition.c
 :successes:
-- :test: test_LinkedList_will_reverse_2_different_Instituition
+- :test: test_LinkedList_will_reverse_2_different_Institution
   :line: 11
   :message: ''
-- :test: test_LinkedList_will_reverse_3_different_Instituition
-  :line: 41
+- :test: test_LinkedList_will_reverse_3_different_Institution
+  :line: 42
+  :message: ''
+- :test: test_LinkedList_will_reverse_4_different_Institution
+  :line: 82
+  :message: ''
+- :test: test_select_only_institution_of_particular_type
+  :line: 129
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 2
-  :passed: 2
+  :total: 4
+  :passed: 4
   :failed: 0
   :ignored: 0
 :stdout: []
