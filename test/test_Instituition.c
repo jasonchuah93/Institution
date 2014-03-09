@@ -2,8 +2,7 @@
 #include "instituition.h"
 #include "mock_LinkedList.h"
 #include "mock_Stack.h"
-#include <string.h>
-#include <stdlib.h>
+
 
 void setUp(){}
 void tearDown(){}
@@ -17,7 +16,6 @@ void test_LinkedList_will_reverse_2_different_Institution(){
 
 	LinkedList list;
 	LinkedList reversedlist;
-	
 	//Evaluate the reverse function
 	//Remove head and push Element 1 to stack
 	List_removeHead_ExpectAndReturn(&list,&institution1);
@@ -133,16 +131,39 @@ void test_select_only_institution_of_particular_type(){
 	Institution institution3 = {.type = UniversityCollege };
 	Institution institution4 = {.type = College };
 	
+	LinkedList list;
+	LinkedList reversedList;
 	
+	InstitutionType type = UniversityCollege;
 	
-	
-	
-	
-	
-
+	//List_removeHead_ExpectAndReturn(&list,&institution1);
+	//Stack_push_Expect(&stack,&institution1);
 	
 }
 
+void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege(){
+	int check;
+	Institution institution1 = {.type = Unknown };
+	InstitutionType institutionType = UniversityCollege;
+	check = isUniversityCollege(&institution1,&institutionType);
+	TEST_ASSERT_EQUAL(0,check);
+	
+	Institution institution2 = {.type = University };
+	institutionType = UniversityCollege;
+	check = isUniversityCollege(&institution2,&institutionType);
+	TEST_ASSERT_EQUAL(0,check);
+	
+	Institution institution3 = {.type = UniversityCollege };
+	institutionType = UniversityCollege;
+	check = isUniversityCollege(&institution3,&institutionType);
+	TEST_ASSERT_EQUAL(1,check);
+	
+	Institution institution4 = {.type = College };
+	institutionType = UniversityCollege;
+	check = isUniversityCollege(&institution4,&institutionType);
+	TEST_ASSERT_EQUAL(0,check);
+}
+	
 
 
 

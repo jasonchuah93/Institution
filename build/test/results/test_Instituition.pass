@@ -4,22 +4,25 @@
   :file: test_Instituition.c
 :successes:
 - :test: test_LinkedList_will_reverse_2_different_Institution
-  :line: 11
+  :line: 10
   :message: ''
 - :test: test_LinkedList_will_reverse_3_different_Institution
-  :line: 42
+  :line: 40
   :message: ''
 - :test: test_LinkedList_will_reverse_4_different_Institution
-  :line: 82
+  :line: 80
   :message: ''
 - :test: test_select_only_institution_of_particular_type
-  :line: 129
+  :line: 127
+  :message: ''
+- :test: test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege
+  :line: 144
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 4
-  :passed: 4
+  :total: 5
+  :passed: 5
   :failed: 0
   :ignored: 0
 :stdout: []

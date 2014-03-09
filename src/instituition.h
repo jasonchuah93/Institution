@@ -21,8 +21,8 @@ typedef struct Instituton_t{
 
  
 int Institution_reverse(LinkedList *inputList, LinkedList *outputList);
-
-
+//int Institution_reverse1(LinkedList *inputList, LinkedList *outputList);
+//int Institution_reverse2(LinkedList *inputList, LinkedList *outputList);
 
 
 #endif //__INSTITUITION_H__

@@ -18,6 +18,7 @@ int Institution_reverse(LinkedList *inputList, LinkedList *outputList){
 	}
 	else
 	{
+		
 		//push Element 1
 		tempInstitution = List_removeHead(inputList);
 		Stack_push(&stack,tempInstitution);
@@ -31,6 +32,7 @@ int Institution_reverse(LinkedList *inputList, LinkedList *outputList){
 		//pop Element1
 		tempInstitution=Stack_pop(&stack);
 		List_addTail(outputList,tempInstitution);
+		
 	}
 	return 1;
 }
@@ -104,9 +106,9 @@ int Institution_reverse2(LinkedList *inputList, LinkedList *outputList){
 		//pop Element1
 		tempInstitution=Stack_pop(&stack);
 		List_addTail(outputList,tempInstitution);
-	
+		
 	}
-		return 1;
+	return 1;
 }
 
 /**
@@ -116,23 +118,40 @@ int Institution_reverse2(LinkedList *inputList, LinkedList *outputList){
 
 int Institution_select(LinkedList *inputList, LinkedList *outputList, void *criterion, int(*compare)(void *, void*)){
 	
-	Institution *tempInstitution;
 	
-	if(inputList->head ==NULL)
+	Institution * tempInstitution;
+	
+	if(inputList->head==NULL)
 	{
 		return 0;
 	}
-	else
+	
+	tempInstitution = List_removeHead(inputList);
+	
+	while(tempInstitution != NULL)
 	{
-		while(tempInstitution!=NULL)
+		if(compare(tempInstitution,criterion))
 		{
-			tempInstitution = List_removeHead(inputList);
-			Stack_push(&stack,tempInstitution);
-			compare(tempInstitution,criterion);
-			tempInstitution = Stack_pop(&stack);
 			List_addTail(outputList,tempInstitution);
 		}
+		tempInstitution = List_removeHead(inputList);
 	}
-			
+	
+
+	
 }
+
+int isUniversityCollege (void *elem1 , void *type){
+	Institution *tempInstitution = (Institution*)elem1;
+	InstitutionType *tempInstitutionType = (InstitutionType*)type;
+	
+	if(tempInstitution->type == *tempInstitutionType)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}	
 
