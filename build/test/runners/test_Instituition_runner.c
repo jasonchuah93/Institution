@@ -49,6 +49,7 @@ extern void test_wasEstablishedBefore_should_return_0_if_institution_establish_a
 extern void test_wasEstablishedBefore_should_return_1_if_institution_establish_before_particular_year(void);
 extern void test_wasEstablishedBefore_should_return_0_if_institution_establish_on_particular_year(void);
 extern void test_wasEstablisedBefore_should_throw_exception_if_institution_established_after_2014(void);
+extern void test_select_only_institution_which_establish_before_specific_year_and_throw_error_if_establish_after_2014(void);
 
 
 //=======Mock Management=====
@@ -96,6 +97,7 @@ int main(void)
   RUN_TEST(test_wasEstablishedBefore_should_return_1_if_institution_establish_before_particular_year, 205);
   RUN_TEST(test_wasEstablishedBefore_should_return_0_if_institution_establish_on_particular_year, 228);
   RUN_TEST(test_wasEstablisedBefore_should_throw_exception_if_institution_established_after_2014, 250);
+  RUN_TEST(test_select_only_institution_which_establish_before_specific_year_and_throw_error_if_establish_after_2014, 267);
 
   return (UnityEnd());
 }

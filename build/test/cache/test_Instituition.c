@@ -524,3 +524,71 @@ void test_wasEstablisedBefore_should_throw_exception_if_institution_established_
 
 
 }
+
+
+
+void test_select_only_institution_which_establish_before_specific_year_and_throw_error_if_establish_after_2014(){
+
+ ExceptionError exception;
+
+ int check;
+
+ int year =1980;
+
+
+
+ Institution institution1 = {.yearEstablished = 1979 };
+
+ Institution institution2 = {.yearEstablished = 1970 };
+
+ Institution institution3 = {.yearEstablished = 2050 };
+
+ Institution institution4 = {.yearEstablished = 1950 };
+
+
+
+ LinkedList InstitutionList;
+
+ LinkedList SelectedInstitution;
+
+
+
+
+
+
+
+
+
+ List_removeHead_CMockExpectAndReturn(283, &InstitutionList, &institution1);
+
+ List_removeHead_CMockExpectAndReturn(284, &InstitutionList, &institution2);
+
+ List_removeHead_CMockExpectAndReturn(285, &InstitutionList, &institution3);
+
+
+
+ { jmp_buf *PrevFrame, NewFrame; unsigned int MY_ID = (0); PrevFrame = CExceptionFrames[(0)].pFrame; CExceptionFrames[MY_ID].pFrame = (jmp_buf*)(&NewFrame); CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); if (_setjmp(NewFrame) == 0) { if (&PrevFrame){
+
+  check=Institution_select(&InstitutionList,&SelectedInstitution,&year,wasEstablishedBefore);
+
+  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)289, UNITY_DISPLAY_STYLE_INT);
+
+ }
+
+ else { } CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); } else { exception = CExceptionFrames[MY_ID].Exception; exception=exception; } CExceptionFrames[MY_ID].pFrame = PrevFrame; } if (CExceptionFrames[(0)].Exception != (0x5A5A5A5A)){
+
+  UnityAssertEqualNumber((_U_SINT)((Error_year_established)), (_U_SINT)((exception)), (((void *)0)), (_U_UINT)292, UNITY_DISPLAY_STYLE_INT);
+
+  printf("Invalid year establish after 2014");
+
+
+
+ }
+
+
+
+
+
+
+
+}

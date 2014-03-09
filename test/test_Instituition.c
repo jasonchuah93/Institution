@@ -263,43 +263,38 @@ void test_wasEstablisedBefore_should_throw_exception_if_institution_established_
 	}
 
 }
-/*
+
 void test_select_only_institution_which_establish_before_specific_year_and_throw_error_if_establish_after_2014(){
 	ExceptionError exception;
 	int check;
+	int year =1980;
 	//Initialize institution and LinkedList
 	Institution institution1 = {.yearEstablished = 1979 };
-	Institution institution2 = {.yearEstablished = 1970  };
-	Institution institution3 = {.yearEstablished = 2050  };
-	Institution institution4 = {.yearEstablished = 1965  };
+	Institution institution2 = {.yearEstablished = 1970 };
+	Institution institution3 = {.yearEstablished = 2050 };
+	Institution institution4 = {.yearEstablished = 1950 };
 	
 	LinkedList InstitutionList;
 	LinkedList SelectedInstitution;
 	//To test Institutions is established before 1980
-	int year = 1980;
+	
 	//Look for institution that is established after 2014 which is institution3
 	//and throw an error
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution1);
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution2);
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution3);
-	Stack_push_Expect(&stack,&institution3);
-	List_removeHead_ExpectAndReturn(&InstitutionList,&institution4);
-	//Add back institution 3 to link list
-	List_addTail_Expect(&SelectedInstitution,&institution4);
-	Stack_pop_ExpectAndReturn(&stack,&institution3);
-	List_addTail_Expect(&SelectedInstitution,&institution3);
 	
 	Try{
-		check = Institution_select(&InstitutionList,&SelectedInstitution,&year,wasEstablishedBefore);
-	}Catch(exception){
-		
-		TEST_ASSERT_EQUAL(Error_year_established,exception);
-		printf("Invalid year establish");
+		check=Institution_select(&InstitutionList,&SelectedInstitution,&year,wasEstablishedBefore);
+		TEST_ASSERT_EQUAL(1,check);
 	}
-	//Call function
-	//Unit test
+	Catch(exception){
+		TEST_ASSERT_EQUAL(Error_year_established,exception);
+		printf("Invalid year establish after 2014");
+		
+	}
 	
-	TEST_ASSERT_EQUAL(1,check);
+	
+	
 }
-*/
 
