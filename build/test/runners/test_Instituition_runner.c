@@ -89,15 +89,15 @@ int main(void)
   Unity.TestFile = "test_Instituition.c";
   UnityBegin();
   RUN_TEST(test_LinkedList_will_reverse_2_different_Institution, 10);
-  RUN_TEST(test_LinkedList_will_reverse_3_different_Institution, 40);
-  RUN_TEST(test_LinkedList_will_reverse_4_different_Institution, 80);
-  RUN_TEST(test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_return_0_if_type_is_not_UniversityCollege, 127);
-  RUN_TEST(test_select_only_institution_of_particular_type, 150);
-  RUN_TEST(test_wasEstablishedBefore_should_return_0_if_institution_establish_after_particular_year_but_before_2014, 181);
-  RUN_TEST(test_wasEstablishedBefore_should_return_1_if_institution_establish_before_particular_year, 205);
-  RUN_TEST(test_wasEstablishedBefore_should_return_0_if_institution_establish_on_particular_year, 228);
-  RUN_TEST(test_wasEstablisedBefore_should_throw_exception_if_institution_established_after_2014, 250);
-  RUN_TEST(test_select_only_institution_which_establish_before_specific_year_and_throw_error_if_establish_after_2014, 267);
+  RUN_TEST(test_LinkedList_will_reverse_3_different_Institution, 42);
+  RUN_TEST(test_LinkedList_will_reverse_4_different_Institution, 84);
+  RUN_TEST(test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_return_0_if_type_is_not_UniversityCollege, 133);
+  RUN_TEST(test_select_only_institution_of_particular_type, 156);
+  RUN_TEST(test_wasEstablishedBefore_should_return_0_if_institution_establish_after_particular_year_but_before_2014, 186);
+  RUN_TEST(test_wasEstablishedBefore_should_return_1_if_institution_establish_before_particular_year, 210);
+  RUN_TEST(test_wasEstablishedBefore_should_return_0_if_institution_establish_on_particular_year, 233);
+  RUN_TEST(test_wasEstablisedBefore_should_throw_exception_if_institution_established_after_2014, 255);
+  RUN_TEST(test_select_only_institution_which_establish_before_specific_year_and_throw_error_if_establish_after_2014, 272);
 
   return (UnityEnd());
 }

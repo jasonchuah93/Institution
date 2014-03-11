@@ -47,17 +47,21 @@ void test_LinkedList_will_reverse_2_different_Institution(){
 
 
 
-
-
- Stack_pop_CMockExpectAndReturn(28, &stack, &institution2);
-
- List_addTail_CMockExpect(29, &reversedlist, &institution2);
+ List_removeHead_CMockExpectAndReturn(27, &list, ((void *)0));
 
 
 
- Stack_pop_CMockExpectAndReturn(31, &stack, &institution1);
 
- List_addTail_CMockExpect(32, &reversedlist, &institution1);
+
+ Stack_pop_CMockExpectAndReturn(30, &stack, &institution2);
+
+ List_addTail_CMockExpect(31, &reversedlist, &institution2);
+
+
+
+ Stack_pop_CMockExpectAndReturn(33, &stack, &institution1);
+
+ List_addTail_CMockExpect(34, &reversedlist, &institution1);
 
 
 
@@ -67,7 +71,7 @@ void test_LinkedList_will_reverse_2_different_Institution(){
 
 
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)37, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((2)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)39, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -101,51 +105,55 @@ void test_LinkedList_will_reverse_3_different_Institution(){
 
 
 
- List_removeHead_CMockExpectAndReturn(54, &list, &institution1);
+ List_removeHead_CMockExpectAndReturn(56, &list, &institution1);
 
- Stack_push_CMockExpect(55, &stack, &institution1);
-
-
-
- List_removeHead_CMockExpectAndReturn(57, &list, &institution2);
-
- Stack_push_CMockExpect(58, &stack, &institution2);
+ Stack_push_CMockExpect(57, &stack, &institution1);
 
 
 
- List_removeHead_CMockExpectAndReturn(60, &list, &institution3);
+ List_removeHead_CMockExpectAndReturn(59, &list, &institution2);
 
- Stack_push_CMockExpect(61, &stack, &institution3);
-
-
+ Stack_push_CMockExpect(60, &stack, &institution2);
 
 
 
- Stack_pop_CMockExpectAndReturn(64, &stack, &institution3);
+ List_removeHead_CMockExpectAndReturn(62, &list, &institution3);
 
- List_addTail_CMockExpect(65, &reversedlist, &institution3);
-
-
-
- Stack_pop_CMockExpectAndReturn(67, &stack, &institution2);
-
- List_addTail_CMockExpect(68, &reversedlist, &institution2);
+ Stack_push_CMockExpect(63, &stack, &institution3);
 
 
 
- Stack_pop_CMockExpectAndReturn(70, &stack, &institution1);
-
- List_addTail_CMockExpect(71, &reversedlist, &institution1);
+ List_removeHead_CMockExpectAndReturn(65, &list, ((void *)0));
 
 
 
 
 
- check=Institution_reverse1(&list,&reversedlist);
+ Stack_pop_CMockExpectAndReturn(68, &stack, &institution3);
+
+ List_addTail_CMockExpect(69, &reversedlist, &institution3);
 
 
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)76, UNITY_DISPLAY_STYLE_INT);
+ Stack_pop_CMockExpectAndReturn(71, &stack, &institution2);
+
+ List_addTail_CMockExpect(72, &reversedlist, &institution2);
+
+
+
+ Stack_pop_CMockExpectAndReturn(74, &stack, &institution1);
+
+ List_addTail_CMockExpect(75, &reversedlist, &institution1);
+
+
+
+
+
+ check=Institution_reverse(&list,&reversedlist);
+
+
+
+ UnityAssertEqualNumber((_U_SINT)((3)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)80, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -183,63 +191,67 @@ void test_LinkedList_will_reverse_4_different_Institution(){
 
 
 
- List_removeHead_CMockExpectAndReturn(95, &list, &institution1);
+ List_removeHead_CMockExpectAndReturn(99, &list, &institution1);
 
- Stack_push_CMockExpect(96, &stack, &institution1);
-
-
-
- List_removeHead_CMockExpectAndReturn(98, &list, &institution2);
-
- Stack_push_CMockExpect(99, &stack, &institution2);
+ Stack_push_CMockExpect(100, &stack, &institution1);
 
 
 
- List_removeHead_CMockExpectAndReturn(101, &list, &institution3);
+ List_removeHead_CMockExpectAndReturn(102, &list, &institution2);
 
- Stack_push_CMockExpect(102, &stack, &institution3);
-
-
-
- List_removeHead_CMockExpectAndReturn(104, &list, &institution4);
-
- Stack_push_CMockExpect(105, &stack, &institution4);
+ Stack_push_CMockExpect(103, &stack, &institution2);
 
 
 
+ List_removeHead_CMockExpectAndReturn(105, &list, &institution3);
 
-
- Stack_pop_CMockExpectAndReturn(108, &stack, &institution4);
-
- List_addTail_CMockExpect(109, &reversedlist, &institution4);
-
-
-
- Stack_pop_CMockExpectAndReturn(111, &stack, &institution3);
-
- List_addTail_CMockExpect(112, &reversedlist, &institution3);
+ Stack_push_CMockExpect(106, &stack, &institution3);
 
 
 
- Stack_pop_CMockExpectAndReturn(114, &stack, &institution2);
+ List_removeHead_CMockExpectAndReturn(108, &list, &institution4);
 
- List_addTail_CMockExpect(115, &reversedlist, &institution2);
+ Stack_push_CMockExpect(109, &stack, &institution4);
 
 
 
- Stack_pop_CMockExpectAndReturn(117, &stack, &institution1);
-
- List_addTail_CMockExpect(118, &reversedlist, &institution1);
+ List_removeHead_CMockExpectAndReturn(111, &list, ((void *)0));
 
 
 
 
 
- check=Institution_reverse2(&list,&reversedlist);
+ Stack_pop_CMockExpectAndReturn(114, &stack, &institution4);
+
+ List_addTail_CMockExpect(115, &reversedlist, &institution4);
 
 
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)123, UNITY_DISPLAY_STYLE_INT);
+ Stack_pop_CMockExpectAndReturn(117, &stack, &institution3);
+
+ List_addTail_CMockExpect(118, &reversedlist, &institution3);
+
+
+
+ Stack_pop_CMockExpectAndReturn(120, &stack, &institution2);
+
+ List_addTail_CMockExpect(121, &reversedlist, &institution2);
+
+
+
+ Stack_pop_CMockExpectAndReturn(123, &stack, &institution1);
+
+ List_addTail_CMockExpect(124, &reversedlist, &institution1);
+
+
+
+
+
+ check=Institution_reverse(&list,&reversedlist);
+
+
+
+ UnityAssertEqualNumber((_U_SINT)((4)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)129, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -257,7 +269,7 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_re
 
  check = isUniversityCollege(&institution1,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)132, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)138, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -267,7 +279,7 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_re
 
  check = isUniversityCollege(&institution2,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)137, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)143, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -277,7 +289,7 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_re
 
  check = isUniversityCollege(&institution3,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)142, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)148, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -287,7 +299,7 @@ void test_isUniversityCollege_should_return_1_if_type_is_UniversityCollege_or_re
 
  check = isUniversityCollege(&institution4,&institutionType);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)147, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)153, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -321,25 +333,23 @@ void test_select_only_institution_of_particular_type(){
 
 
 
- List_removeHead_CMockExpectAndReturn(164, &InstitutionList, &institution1);
+ List_removeHead_CMockExpectAndReturn(170, &InstitutionList, &institution1);
 
- List_removeHead_CMockExpectAndReturn(165, &InstitutionList, &institution2);
+ List_removeHead_CMockExpectAndReturn(171, &InstitutionList, &institution2);
 
- List_removeHead_CMockExpectAndReturn(166, &InstitutionList, &institution3);
+ List_removeHead_CMockExpectAndReturn(172, &InstitutionList, &institution3);
 
- Stack_push_CMockExpect(167, &stack, &institution3);
+ Stack_push_CMockExpect(173, &stack, &institution3);
 
- List_removeHead_CMockExpectAndReturn(168, &InstitutionList, &institution4);
+ List_removeHead_CMockExpectAndReturn(174, &InstitutionList, &institution4);
 
-
-
- List_addTail_CMockExpect(170, &SelectedInstitution, &institution4);
-
- Stack_pop_CMockExpectAndReturn(171, &stack, &institution3);
-
- List_addTail_CMockExpect(172, &SelectedInstitution, &institution3);
+ List_removeHead_CMockExpectAndReturn(175, &InstitutionList, ((void *)0));
 
 
+
+ Stack_pop_CMockExpectAndReturn(177, &stack, &institution3);
+
+ List_addTail_CMockExpect(178, &SelectedInstitution, &institution3);
 
 
 
@@ -349,7 +359,7 @@ void test_select_only_institution_of_particular_type(){
 
 
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)178, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)183, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -375,25 +385,25 @@ void test_wasEstablishedBefore_should_return_0_if_institution_establish_after_pa
 
  check = wasEstablishedBefore(&institution1,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)191, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)196, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution2,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)194, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)199, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution3,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)197, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)202, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution4,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)200, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)205, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -425,25 +435,25 @@ void test_wasEstablishedBefore_should_return_1_if_institution_establish_before_p
 
  check = wasEstablishedBefore(&institution1,&year);
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)216, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)221, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution2,&year);
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)219, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)224, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution3,&year);
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)222, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)227, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution4,&year);
 
- UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)225, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)230, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -469,25 +479,25 @@ void test_wasEstablishedBefore_should_return_0_if_institution_establish_on_parti
 
  check = wasEstablishedBefore(&institution1,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)238, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)243, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution2,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)241, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)246, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution3,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)244, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)249, UNITY_DISPLAY_STYLE_INT);
 
 
 
  check = wasEstablishedBefore(&institution4,&year);
 
- UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)247, UNITY_DISPLAY_STYLE_INT);
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)252, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -515,7 +525,7 @@ void test_wasEstablisedBefore_should_throw_exception_if_institution_established_
 
 
 
-  UnityAssertEqualNumber((_U_SINT)((Error_year_established)), (_U_SINT)((exception)), (((void *)0)), (_U_UINT)261, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((Error_year_established)), (_U_SINT)((exception)), (((void *)0)), (_U_UINT)266, UNITY_DISPLAY_STYLE_INT);
 
   printf("Invalid year establish");
 
@@ -541,7 +551,7 @@ void test_select_only_institution_which_establish_before_specific_year_and_throw
 
  Institution institution2 = {.yearEstablished = 1970 };
 
- Institution institution3 = {.yearEstablished = 2050 };
+ Institution institution3 = {.yearEstablished = 2022 };
 
  Institution institution4 = {.yearEstablished = 1950 };
 
@@ -559,11 +569,15 @@ void test_select_only_institution_which_establish_before_specific_year_and_throw
 
 
 
- List_removeHead_CMockExpectAndReturn(283, &InstitutionList, &institution1);
+ List_removeHead_CMockExpectAndReturn(288, &InstitutionList, &institution1);
 
- List_removeHead_CMockExpectAndReturn(284, &InstitutionList, &institution2);
+ Stack_push_CMockExpect(289, &stack, &institution1);
 
- List_removeHead_CMockExpectAndReturn(285, &InstitutionList, &institution3);
+ List_removeHead_CMockExpectAndReturn(290, &InstitutionList, &institution2);
+
+ Stack_push_CMockExpect(291, &stack, &institution2);
+
+ List_removeHead_CMockExpectAndReturn(292, &InstitutionList, &institution3);
 
 
 
@@ -571,23 +585,19 @@ void test_select_only_institution_which_establish_before_specific_year_and_throw
 
   check=Institution_select(&InstitutionList,&SelectedInstitution,&year,wasEstablishedBefore);
 
-  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)289, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)296, UNITY_DISPLAY_STYLE_INT);
 
  }
 
  else { } CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); } else { exception = CExceptionFrames[MY_ID].Exception; exception=exception; } CExceptionFrames[MY_ID].pFrame = PrevFrame; } if (CExceptionFrames[(0)].Exception != (0x5A5A5A5A)){
 
-  UnityAssertEqualNumber((_U_SINT)((Error_year_established)), (_U_SINT)((exception)), (((void *)0)), (_U_UINT)292, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((Error_year_established)), (_U_SINT)((exception)), (((void *)0)), (_U_UINT)299, UNITY_DISPLAY_STYLE_INT);
 
   printf("Invalid year establish after 2014");
 
 
 
  }
-
-
-
-
 
 
 

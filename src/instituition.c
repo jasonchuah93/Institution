@@ -10,107 +10,33 @@ Stack stack;
 	Question 1
 **/
 int Institution_reverse(LinkedList *inputList, LinkedList *outputList){
-	
+	int i;
 	Institution *tempInstitution;
+	int counter =0 ; 
+	
 	
 	if(inputList->head ==NULL)
 	{
 		return 0;
 	}
-	else
+	while ((tempInstitution = (Institution*)List_removeHead(inputList)) !=NULL)
 	{
-		
 		//push Element 1
-		tempInstitution = List_removeHead(inputList);
 		Stack_push(&stack,tempInstitution);
-		//push Element 2
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
+		counter ++;
+	}
+	
+	for(i=0;i<counter;i++)
+	{
+		tempInstitution = Stack_pop(&stack);
+		List_addTail(outputList,tempInstitution);
 		
-		//pop Element2
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-		//pop Element1
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
 		
 	}
-	return 1;
+	return counter;
 }
 
-int Institution_reverse1(LinkedList *inputList, LinkedList *outputList){
-	
-	Institution *tempInstitution;
-	
-	if(inputList->head ==NULL)
-	{
-		return 0;
-	}
-	else
-	{
-		//push Element 1
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
-		//push Element 2
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
-		//push Element 3
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
-		
-		//pop Element3
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-		//pop Element2
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-		//pop Element1
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-	
-	}
-		return 1;
-}
 
-int Institution_reverse2(LinkedList *inputList, LinkedList *outputList){
-	
-	Institution *tempInstitution;
-	
-	if(inputList->head ==NULL)
-	{
-		return 0;
-	}
-	else
-	{
-		//push Element 1
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
-		//push Element 2
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
-		//push Element 3
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
-		//push Element 4
-		tempInstitution = List_removeHead(inputList);
-		Stack_push(&stack,tempInstitution);
-		
-		//pop Element4
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-		//pop Element3
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-		//pop Element2
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-		//pop Element1
-		tempInstitution=Stack_pop(&stack);
-		List_addTail(outputList,tempInstitution);
-		
-	}
-	return 1;
-}
 
 /**
 	Question 2 
@@ -118,30 +44,31 @@ int Institution_reverse2(LinkedList *inputList, LinkedList *outputList){
 **/
 
 int Institution_select(LinkedList *inputList, LinkedList *outputList, void *criterion, int(*compare)(void *, void*)){
-	
-	
+	int i;
 	Institution *tempInstitution;
-	
+	int counter = 0;
 	if(inputList->head==NULL)
 	{
 		return 0;
 	}
 	//Look for institution which is the particular type
-	tempInstitution = List_removeHead(inputList);
-	tempInstitution = List_removeHead(inputList);
-	tempInstitution = List_removeHead(inputList);
-	//Compare the institution with the institution type
-	if(compare(tempInstitution,criterion))
-	{	
-		Stack_push(&stack,tempInstitution);
+	while((tempInstitution = (Institution*)List_removeHead(inputList)) !=NULL)
+	{
+		//Compare the institution with the institution type
+		if(compare(tempInstitution,criterion))
+		{	
+			Stack_push(&stack,tempInstitution);
+			counter++;
+			
+		}
 	}
-	tempInstitution = List_removeHead(inputList);
+	for(i=0;i<counter;i++)
+	{
+		tempInstitution=Stack_pop(&stack);
+		List_addTail(outputList,tempInstitution);
+	}
+	return counter;
 	
-	List_addTail(outputList,tempInstitution);
-	tempInstitution=Stack_pop(&stack);
-	List_addTail(outputList,tempInstitution);
-	
-	return 1;
 	
 }
 

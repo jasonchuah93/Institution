@@ -24,6 +24,8 @@ void test_LinkedList_will_reverse_2_different_Institution(){
 	List_removeHead_ExpectAndReturn(&list,&institution2);
 	Stack_push_Expect(&stack,&institution2);
 	
+	List_removeHead_ExpectAndReturn(&list,NULL);
+	
 	//Pop Element 2 from stack and add to tail 
 	Stack_pop_ExpectAndReturn(&stack,&institution2);
 	List_addTail_Expect(&reversedlist,&institution2);
@@ -34,7 +36,7 @@ void test_LinkedList_will_reverse_2_different_Institution(){
 	//Call function
 	check = Institution_reverse(&list,&reversedlist);
 	//Unit test
-	TEST_ASSERT_EQUAL(1,check);
+	TEST_ASSERT_EQUAL(2,check);
 }
 
 void test_LinkedList_will_reverse_3_different_Institution(){
@@ -60,6 +62,8 @@ void test_LinkedList_will_reverse_3_different_Institution(){
 	List_removeHead_ExpectAndReturn(&list,&institution3);
 	Stack_push_Expect(&stack,&institution3);
 
+	List_removeHead_ExpectAndReturn(&list,NULL);
+	
 	//Pop Element 3 from stack and add to tail 
 	Stack_pop_ExpectAndReturn(&stack,&institution3);
 	List_addTail_Expect(&reversedlist,&institution3);
@@ -71,9 +75,9 @@ void test_LinkedList_will_reverse_3_different_Institution(){
 	List_addTail_Expect(&reversedlist,&institution1);
 	
 	//Call function
-	check=Institution_reverse1(&list,&reversedlist);
+	check=Institution_reverse(&list,&reversedlist);
 	//Unit test
-	TEST_ASSERT_EQUAL(1,check);
+	TEST_ASSERT_EQUAL(3,check);
 	
 }
 
@@ -104,6 +108,8 @@ void test_LinkedList_will_reverse_4_different_Institution(){
 	List_removeHead_ExpectAndReturn(&list,&institution4);
 	Stack_push_Expect(&stack,&institution4);
 	
+	List_removeHead_ExpectAndReturn(&list,NULL);
+	
 	//Pop Element 4 from stack and add to tail 
 	Stack_pop_ExpectAndReturn(&stack,&institution4);
 	List_addTail_Expect(&reversedlist,&institution4);
@@ -118,9 +124,9 @@ void test_LinkedList_will_reverse_4_different_Institution(){
 	List_addTail_Expect(&reversedlist,&institution1);
 	
 	//Call function
-	check=Institution_reverse2(&list,&reversedlist);
+	check=Institution_reverse(&list,&reversedlist);
 	//Unit test
-	TEST_ASSERT_EQUAL(1,check);
+	TEST_ASSERT_EQUAL(4,check);
 	
 }
 
@@ -166,11 +172,10 @@ void test_select_only_institution_of_particular_type(){
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution3);
 	Stack_push_Expect(&stack,&institution3);
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution4);
+	List_removeHead_ExpectAndReturn(&InstitutionList,NULL);
 	//Add back institution 3 to link list
-	List_addTail_Expect(&SelectedInstitution,&institution4);
 	Stack_pop_ExpectAndReturn(&stack,&institution3);
 	List_addTail_Expect(&SelectedInstitution,&institution3);
-	
 	
 	//Call function
 	check = Institution_select(&InstitutionList,&SelectedInstitution,&Institutions,isUniversityCollege);
@@ -271,7 +276,7 @@ void test_select_only_institution_which_establish_before_specific_year_and_throw
 	//Initialize institution and LinkedList
 	Institution institution1 = {.yearEstablished = 1979 };
 	Institution institution2 = {.yearEstablished = 1970 };
-	Institution institution3 = {.yearEstablished = 2050 };
+	Institution institution3 = {.yearEstablished = 2022 };
 	Institution institution4 = {.yearEstablished = 1950 };
 	
 	LinkedList InstitutionList;
@@ -281,7 +286,9 @@ void test_select_only_institution_which_establish_before_specific_year_and_throw
 	//Look for institution that is established after 2014 which is institution3
 	//and throw an error
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution1);
+	Stack_push_Expect(&stack,&institution1);
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution2);
+	Stack_push_Expect(&stack,&institution2);
 	List_removeHead_ExpectAndReturn(&InstitutionList,&institution3);
 	
 	Try{
@@ -293,8 +300,6 @@ void test_select_only_institution_which_establish_before_specific_year_and_throw
 		printf("Invalid year establish after 2014");
 		
 	}
-	
-	
 	
 }
 

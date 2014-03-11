@@ -23,8 +23,6 @@ typedef struct Instituton_t{
 
 
 int Institution_reverse(LinkedList *inputList, LinkedList *outputList);
-int Institution_reverse1(LinkedList *inputList, LinkedList *outputList);
-int Institution_reverse2(LinkedList *inputList, LinkedList *outputList);
 int Institution_select(LinkedList *inputList, LinkedList *outputList, void *criterion, int(*compare)(void *, void*));
 int isUniversityCollege (void *elem1 , void *type);
 int wasEstablishedBefore(void *elem1, void *year);
